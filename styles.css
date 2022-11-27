@@ -24,8 +24,74 @@ h1 {
 }
 
 .results {
-    display:flex;
+    display:inline-flex;
     flex-direction: column;
     align-items: center;
     line-height: 5rem;
+    list-style-type: none;
+    width:100%;
+    font-size:3rem;
 }
+
+.newresult {
+    padding-top: 1rem;
+    display: inline-flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.newresult > div {
+    display:inline-flex;
+    flex-direction: row;
+}
+
+
+.total.show{
+    padding-left: 100px;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+li {
+    height:0;
+    margin:0;
+    padding:0;
+    display:inline-block;
+    line-height: 40px;
+  }
+
+li.show {
+    height: 2em;
+    margin: 2px 0;
+    padding: 5px;
+  }
+  
+  .fade li {
+    transition: all 0.4s ease-out;
+    opacity: 0;
+  }
+  .fade li.show {
+    opacity: 1;
+  }
+  
+  .swing {
+    perspective: 100px;
+  }
+  
+  .swing li {
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transition: all 1s cubic-bezier(.36,-0.64,.34,1.76);
+  }
+  
+  .swing li.show {
+    opacity: 1;
+    transform: none;
+    transition: all 1s cubic-bezier(.36,-0.64,.34,1.76);
+  }
