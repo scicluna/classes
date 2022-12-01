@@ -2,10 +2,16 @@
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: normal;
+    color: rgba(0, 0, 0, 0.877);
+    margin: 0; 
 }
 
 h1 {
     text-align: center;
+}
+
+body {
+  background-color: rgba(36, 237, 255, 0.274);
 }
 
 .inputs {
@@ -14,13 +20,23 @@ h1 {
     align-items: center;
 }
 
+h1 {
+  font-size: 50px;
+  font-weight: bolder;
+}
+
 .inputs > button {
     font-size: 2rem;
     height:25%;
+    width:10%;
+    background-color: rgba(127, 255, 212, 0.404);
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 .inputs > input {
     font-size: 4rem;
+    background-color: rgba(240, 248, 255, 0.384);
 }
 
 .results {
@@ -65,7 +81,59 @@ li {
     display:inline-block;
     line-height: 40px;
   }
+  
+.tutorial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.tutorial button {
+  border-radius: 25px;
+  border: 3px solid rgba(0, 0, 0, 0.863);
+  cursor: pointer;
+  font-size: 40px;
+  width:50px;
+  height:50px;
+  background-color: rgba(240, 255, 255, 0.644);
+}
+
+.tutorial p {
+  display:flex;
+  height:0;
+  font-size:0px;
+  transition:.8s ease;
+  justify-content: center;
+  text-align:center;
+}
+
+.tutorial p.show {
+  display:flex;
+  height: 20%;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.199);
+  font-size: 20px;
+  justify-content: center;
+  text-align:center;
+  width: 100vw;
+  transition: .8s ease;
+}
+
+.fade p {
+  display:flex;
+  transition: all 1s ease-out;
+  opacity: 0;
+}
+
+.fade p.show {
+  opacity: 1;
+}
+
+.backdrop {
+  opacity: 30%;
+}
+
+  
 li.show {
     height: 2em;
     margin: 2px 0;

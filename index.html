@@ -9,12 +9,26 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <h1>Roll the Dice!</h1>
-    <div class="inputs">
+    <h1 data-header>Roll the Dice!</h1>
+    <div class="inputs" data-inputs>
         <button data-clear>Clear</button>
         <input data-input type="text">
         <button data-roll>Roll</button>
     </div>
+    <div class ="tutorial">
+        <button data-tutorial>?</button>
+        <div fade>
+            <p class = "tutorialtext" data-tutorialtext>
+                To use the dice roller, simply type in your dice quantity and size split by a "d". (ex: 4d6) <br>
+                You can also add different types of dice together (ex: 4d6+1d20+2d8). <br>
+                Or you can even use it as a calculator! (ex: 5-4+10) <br>
+                You can also make the dice "explode" by adding an ! after the die. (ex: 4d6!) <br>
+                Or drop a dice by putting another d and your desired number of dropped dice afterwards. (ex: 4d6d1)
+            </p>
+        </div>
+    </div>
+
+
     <div class ="results swing">
         <div data-new-result class="newresult fade"></div>
     </div>

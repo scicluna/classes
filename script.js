@@ -239,10 +239,30 @@ class Diceroller {
     }
 }
 
+function textToggle() {
+    console.log('click')
+    if (tutorialText.classList.contains("show")){
+        tutorialText.classList.remove("show")
+        header.classList.remove("backdrop")
+        inputs.classList.remove("backdrop")
+        newResult.classList.remove("backdrop")
+        } else {  
+        tutorialText.classList.add("show")
+        header.classList.add("backdrop")
+        inputs.classList.add("backdrop")
+        newResult.classList.add("backdrop")
+        }
+}
+
 const clearButton = document.querySelector('[data-clear')
 const newResult = document.querySelector('[data-new-result]')
 const rollButton = document.querySelector('[data-roll]')
+const inputs = document.querySelector('[data-inputs]')
 const inputString = document.querySelector('[data-input]')
+const header = document.querySelector('[data-header]')
+const tutorialBtn = document.querySelector('[data-tutorial]')
+const tutorialText = document.querySelector('[data-tutorialtext]')
+
 
 const diceroller = new Diceroller(inputString, newResult)
 
@@ -262,4 +282,8 @@ rollButton.addEventListener('click', button => {
     diceroller.flattenArray();
     diceroller.updateDom();
     diceroller.cleanup();
+})
+
+tutorialBtn.addEventListener('click', button =>{
+    textToggle()
 })
