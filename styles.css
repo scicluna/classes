@@ -105,6 +105,7 @@ li {
   transition:.8s ease;
   justify-content: center;
   text-align:center;
+  width:100vw;
 }
 
 .tutorial p.show {
