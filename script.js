@@ -31,6 +31,7 @@ class Diceroller {
         this.coloredArray = []
         this.tick = 0
         this.quantities = []
+        this.quantitytick = 0
     }
 
      //updates our this.inputString to equal what's typed into the form
@@ -114,6 +115,8 @@ class Diceroller {
         let randomDice = Math.ceil(Math.random()*size)
         //other half of the explosive dice tag
         if (randomDice == size && this.explosiveFlag == "on" && size != 1){
+            this.quantities[this.quantitytick] = parseInt(this.quantities[this.quantitytick])
+            this.quantities[this.quantitytick] = this.quantities[this.quantitytick]+1
             i--
         }
         //pushing our generated dice into a temporary array
@@ -131,11 +134,14 @@ class Diceroller {
         //handling our drop dice feature and sorting heldDice.
         if (drop !== undefined){
             heldDice = heldDice.sort((a,b) => b-a).slice(0,heldDice.length-drop)
+            this.quantities[this.quantitytick] = parseInt(this.quantities[this.quantitytick])
+            this.quantities[this.quantitytick] = this.quantities[this.quantitytick]-drop
         } else {
             heldDice = heldDice.sort((a,b) => b-a)
         }
         //pushing our heldDice array into our rolledDice array -- doing it in this order causes each xdy to be sorted seperately
         this.rolledDice.push(heldDice);
+        this.quantitytick++
     }
 
     //individualy finds the sum of each dice array and puts them into another array
@@ -279,7 +285,7 @@ class Diceroller {
         this.coloredArray =[]
         this.tick =0
         this.quantities = []
-        this.quantityTick = 0
+        this.quantitytick = 0
     }
 }
 
