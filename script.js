@@ -36,6 +36,15 @@ class Diceroller {
      //updates our this.inputString to equal what's typed into the form
     update(){
         this.inputString = inputString.value;
+        this.conditions = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'f', 'g', 'h', 'j', 'k', 'l', ';', ':', '"', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '<', '>', '?', '@', '`', '#', '$', '%', '^', '&', '(', ')', '_', '=' ]
+        if (this.conditions.some(el => this.inputString.includes(el))){
+            alert("invalid syntax, please refer to ?")
+            throw new Error("invalid syntax.")
+        }
+        if (this.inputString[this.inputString.length-1] === '+' || this.inputString[this.inputString.length-1] === '-' || this.inputString[this.inputString.length-1] === '*' || this.inputString[this.inputString.length-1] === '/' ){
+                alert("invalid syntax, please refer to ?")
+                throw new Error("invalid syntax.")
+        }
     }
     
     //splits our string into an array of dice arrays and an array of operations
@@ -173,7 +182,6 @@ class Diceroller {
             for (let i=0;i<arr1.length;i++){
                 spot = lastspot + parseInt(this.quantities[this.tick])
                 if (i === spot && this.operationArray[this.tick] !== undefined){
-                    console.log('test')
                     arr1.splice(i, 0,this.operationArray[this.tick])
                     lastspot = spot+1
                     this.tick++
@@ -181,7 +189,6 @@ class Diceroller {
             }
             //Setting our flat array equal to our fully suped-up array which now incldues operations
             this.flatArray = arr1
-            console.log(this.flatArray)
         }
 
     //Coloring our array by building  an array of objects that has the same length as rolledDice

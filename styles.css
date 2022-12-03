@@ -18,6 +18,7 @@ body {
     display:flex;  
     justify-content: center;
     align-items: center;
+    width:100vw;
 }
 
 h1 {
@@ -37,6 +38,7 @@ h1 {
 .inputs > input {
     font-size: 4rem;
     background-color: rgba(240, 248, 255, 0.384);
+    width:80%;
 }
 
 .results {
@@ -164,3 +166,45 @@ li.show {
     transform: none;
     transition: all 1s cubic-bezier(.36,-0.64,.34,1.76);
   }
+
+  @media screen and (max-width: 750px)  {
+    .inputs > button {
+      font-size: 12px;
+      height:30px;
+    }
+  
+    h1{
+      font-size: 30px;
+    }
+  
+    .inputs > input {
+      font-size: 2rem;
+  }
+    .results{
+      font-size:2rem;
+    }
+    .total.show{
+      padding-left: 30%;
+  }
+  }
+
+@media screen and (max-width: 400px)  {
+  .inputs > button {
+    font-size: 0px;
+    height:25px;
+  }
+
+  h1{
+    font-size: 25px;
+  }
+
+  .inputs > input {
+    font-size: 1rem;
+}
+  .results{
+    font-size:1rem;
+  }
+  .total.show{
+    padding-left: 20%;
+}
+}
