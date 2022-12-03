@@ -45,6 +45,10 @@ class Diceroller {
                 alert("invalid syntax, please refer to ?")
                 throw new Error("invalid syntax.")
         }
+        if(this.inputString === ''){
+            alert ("nothing typed in")
+            throw new Error("invalid syntax.")
+        }
     }
     
     //splits our string into an array of dice arrays and an array of operations
