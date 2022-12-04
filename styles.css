@@ -102,35 +102,24 @@ li {
 }
 
 .tutorial p {
-  display:flex;
-  height:0;
-  font-size:0px;
-  transition:.8s ease;
+  font-size:20px;
   justify-content: center;
   text-align:center;
   width:100vw;
+  overflow: hidden;
+  max-height:0vh;
+  transition: max-height 0.3s ease-in-out;
+  background-color: rgba(128, 128, 128, 0.199);
 }
 
 .tutorial p.show {
-  display:flex;
-  height: 20%;
   border-radius: 10px;
-  background-color: rgba(128, 128, 128, 0.199);
   font-size: 20px;
   justify-content: center;
   text-align:center;
   width: 100vw;
-  transition: .8s ease;
-}
-
-.fade p {
-  display:flex;
-  transition: all 1s ease-out;
-  opacity: 0;
-}
-
-.fade p.show {
-  opacity: 1;
+  max-height: 30vh;
+  transition: max-height 0.3s ease-in-out;
 }
 
 .backdrop {
