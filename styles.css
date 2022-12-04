@@ -8,6 +8,9 @@
 
 h1 {
     text-align: center;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 50px;
+    font-weight: bolder;
 }
 
 body {
@@ -19,11 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     width:100vw;
-}
-
-h1 {
-  font-size: 50px;
-  font-weight: bolder;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .inputs > button {
@@ -33,6 +32,7 @@ h1 {
     background-color: rgba(127, 255, 212, 0.404);
     border-radius: 20px;
     cursor: pointer;
+
 }
 
 .inputs > input {
@@ -123,6 +123,7 @@ li {
 }
 
 .backdrop {
+  transition: opacity 0.3s ease-in-out;
   opacity: 30%;
 }
 
