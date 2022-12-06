@@ -206,8 +206,13 @@ class Diceroller {
         this.coloredArray = []
         let dicewecandealwith = this.rolledDice.flat();
 
+        console.log(size)
+        if (size.includes('!')){
+            size = size.replace(/!/g, '')
+        }
+
         for (let i=0;i<dicewecandealwith.length;i++){
-            if (dicewecandealwith[i] == size){
+            if (dicewecandealwith[i] == size || dicewecandealwith[i] == `${size}!`){
                 let newObject = Object.assign({}, dicewecandealwith[i])
                 newObject.no = dicewecandealwith[i]
                 newObject.color = "green"
