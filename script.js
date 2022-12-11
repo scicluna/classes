@@ -32,6 +32,7 @@ class Diceroller {
         this.tick = 0
         this.quantities = []
         this.quantitytick = 0
+        this.arrayofColoredArrays = []
     }
 
      //updates our this.inputString to equal what's typed into the form
@@ -82,19 +83,20 @@ class Diceroller {
     roll(){
         //loop based on our rolldice perameters and for every item of arraysDiceArrays
         for (let i =0; i<this.arraysDiceArrays.length;i++){
-        let size = this.arraysDiceArrays[i][1]
-        let quantity = this.arraysDiceArrays[i][0]
-        let drop = this.arraysDiceArrays[i][2]
+            let size = this.arraysDiceArrays[i][1]
+            let quantity = this.arraysDiceArrays[i][0]
+            let drop = this.arraysDiceArrays[i][2]
         //creating a quantities array so that placing our operations is easier
         if (size !== undefined) {
             this.quantities.push(quantity)
         } else this.quantities.push(1)
         //run our roll dice and colorify functions to get rolledDice and coloredArray
-        this.rollDice(size, quantity, drop);
-        this.colorify(size)
+            this.rollDice(size, quantity, drop);
+            this.colorify(size)
         //only flatten at the very end
         if (i === this.arraysDiceArrays.length-1){
             this.flattenArray()
+        
         }
         }
     }
@@ -199,6 +201,7 @@ class Diceroller {
             }
             //Setting our flat array equal to our fully suped-up array which now incldues operations
             this.flatArray = arr1
+            this.flatColorArray = this.arrayofColoredArrays.flat()
         }
 
     //Coloring our array by building  an array of objects that has the same length as rolledDice
@@ -207,7 +210,7 @@ class Diceroller {
         let dicewecandealwith = this.rolledDice.flat();
 
         console.log(size)
-        if (size.includes('!')){
+        if (size !== undefined && size.includes('!')){
             size = size.replace(/!/g, '')
         }
 
@@ -232,6 +235,7 @@ class Diceroller {
                 this.coloredArray.push(newObject)
             }
         }
+        this.arrayofColoredArrays.push(this.coloredArray)
     }
 
     //update our DOMs with the new results
@@ -246,13 +250,13 @@ class Diceroller {
             newLi.appendChild(liContent);
             //splicing out the operations from our numbertoadd array for the purpose of coloring the numbers. a bit hacky, idk if this is a good way to accomplish the desired outcome
             if (numbertoadd === '-' || numbertoadd === '+' || numbertoadd === '*' || numbertoadd === '/'){
-                this.coloredArray.splice(i, 0, '');
+                this.flatColorArray.splice(i, 0, '');
             }
             //adding color and timeout classes for animation and ascetics
-            if (color(this.coloredArray[i]) == "red"){
+            if (color(this.flatColorArray[i]) == "red"){
                 newLi.className = newLi.className + " red"
             }
-            if (color(this.coloredArray[i]) == "green"){
+            if (color(this.flatColorArray[i]) == "green"){
                 newLi.className = newLi.className + " green"
             }
             setTimeout(function(){
@@ -291,6 +295,7 @@ class Diceroller {
         this.tick =0
         this.quantities = []
         this.quantitytick = 0
+        this.arrayofColoredArrays = []
     }
 }
 
